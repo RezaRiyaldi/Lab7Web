@@ -14,21 +14,21 @@
 
     <form action="" method="post" class="container">
         <div class="form-control">
-            <label for="nama">Nama</label>
-            <input type="text" name="nama" placeholder="Masukan nama">
+            <label for="nama">Nama<span>*</span></label>
+            <input type="text" name="nama" placeholder="Masukan nama" required>
         </div>
         <div class="form-control">
-            <label for="nama">Tanggal Lahir</label>
-            <input type="date" name="tgl_lahir">
+            <label for="nama">Tanggal Lahir<span>*</span></label>
+            <input type="date" name="tgl_lahir" required>
         </div>
         <div class="form-control">
-            <label for="nama">Pekerjaan</label>
-            <select name="pekerjaan">
+            <label for="nama">Pekerjaan<span>*</span></label>
+            <select name="pekerjaan" required>
                 <option value="">- Pilih Pekerjaan -</option>
-                <option value="Network">Network Engineer</option>
-                <option value="Programmer">Programmer</option>
+                <option value="Mobile Application Developer">Mobile Application Developer</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Web Developer">Web Developer</option>
                 <option value="DevOps">DevOps</option>
-                <option value="Data">Data Engineer</option>
             </select>
         </div>
 
@@ -36,38 +36,75 @@
     </form>
 
     <?php
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['nama'] != '') {
+        $nama = ucwords(strtolower($_POST['nama']));
+
+        // Tanggal Lahir
+        $lahir = date_format(date_create($_POST['tgl_lahir']), "d F Y");
+
+        // Hitung Umur
+        $tgl = new DateTime($_POST['tgl_lahir']);
+        $today = new DateTime('today');
+        $umur = $today->diff($tgl)->y;
+
+        // Pekerjaan dan Gaji
+        $pekerjaan = $_POST['pekerjaan'];
+        $gaji = "";
+
+        switch ($pekerjaan) {
+            case 'Mobile Application Developer' :
+                $gaji = "36 Juta";
+                break;
+
+            case 'Data Scientist':
+                $gaji = "19 Juta";
+                break;
+
+            case 'Web Developer':
+                $gaji = "25 Juta";
+                break;
+
+            case 'DevOps':
+                $gaji = "35 Juta";
+                break;
+
+            default :
+                $gaji = '0';
+                break;
+        }
+        
+
     ?>
-    <div class="container">
-        <h3>Hasil</h3>
-        <hr>
-        <table>
-            <tr>
-                <td>Nama</td>
-                <td>: Reza</td>
-            </tr>
+        <div class="container">
+            <h3>Hasil</h3>
+            <hr>
+            <table>
+                <tr>
+                    <td>Nama</td>
+                    <td>: <?= $nama ?></td>
+                </tr>
 
-            <tr>
-                <td>Tanggal Lahir</td>
-                <td>: </td>
-            </tr>
+                <tr>
+                    <td>Tanggal Lahir</td>
+                    <td>: <?= $lahir ?></td>
+                </tr>
 
-            <tr>
-                <td>Umur</td>
-                <td>: </td>
-            </tr>
+                <tr>
+                    <td>Umur</td>
+                    <td>: <?= $umur ?> Tahun</td>
+                </tr>
 
-            <tr>
-                <td>Pekerjaan</td>
-                <td>: </td>
-            </tr>
+                <tr>
+                    <td>Pekerjaan</td>
+                    <td>: <?= $pekerjaan ?></td>
+                </tr>
 
-            <tr>
-                <td>Gaji</td>
-                <td>: Rp.</td>
-            </tr>
-        </table>
-    </div>
+                <tr>
+                    <td>Gaji</td>
+                    <td>: Rp. <?= $gaji ?></td>
+                </tr>
+            </table>
+        </div>
     <?php
     }
     ?>

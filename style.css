@@ -16,7 +16,7 @@ h3 {
 
 .container {
     border: 1px solid black;
-    width: 60%;
+    width: 30%;
     margin: auto;
     padding: 20px;
     border-radius: 5px;
@@ -52,4 +52,8 @@ table {
 
 td {
     padding: 5px 0;
+}
+
+span {
+    color: red;
 }
