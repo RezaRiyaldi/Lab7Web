@@ -17,37 +17,47 @@ $thp = $gaji - ($gaji * $pajak);
 
 // echo "Gaji sebelum kena pajak = Rp. $gaji </br>";
 // echo "Gaji yang dibawa pulang = Rp. $thp </br>";
-// date_default_timezone_set("Asia/Jakarta");
-// if ($nama_hari == "Sunday") {
-//     $hari_ini = "Minggu";
-// } else if ($nama_hari == "Monday") {
-//     $hari_ini = "Senin";
-// } else if ($nama_hari == "Monday") {
-//     $hari_ini = "Selasa";
-// } else if ($nama_hari == "Monday") {
-//     $hari_ini = "Rebu";
-// } else if ($nama_hari == "Monday") {
-//     $hari_ini = "Kamis";
-// } else if ($nama_hari == "Monday") {
-//     $hari_ini = "Jum\'at";
-// } else if ($nama_hari == "Monday") {
-//     $hari_ini = "Sabtu";
-// }
 
+date_default_timezone_set("Asia/Jakarta");
 $nama_hari = date('l');
 $hari_ini = "";
 
-switch ($nama_hari) {
-    case "Sunday":
-        $hari_ini = "Minggu";
-        break;
-
-    case "Monday":
-        $hari_ini = "Senin";
-        break;
+if ($nama_hari == "Sunday") {
+    $hari_ini = "Minggu";
+} else if ($nama_hari == "Monday") {
+    $hari_ini = "Senin";
+} else if ($nama_hari == "Tuesday") {
+    $hari_ini = "Selasa";
+} else if ($nama_hari == "Wednesday") {
+    $hari_ini = "Rebu";
+} else if ($nama_hari == "Thursday") {
+    $hari_ini = "Kamis";
+} else if ($nama_hari == "Friday") {
+    $hari_ini = "Jum\'at";
+} else if ($nama_hari == "Saturday") {
+    $hari_ini = "Sabtu";
 }
 
-// echo "Hari ini adalah hari $hari_ini";
+echo "Hari ini adalah hari $hari_ini";
+
+
+
+
+
+
+
+
+
+// switch ($nama_hari) {
+//     case "Sunday":
+//         $hari_ini = "Minggu";
+//         break;
+
+//     case "Monday":
+//         $hari_ini = "Senin";
+//         break;
+// }
+
 // for ($i = 1; $i <= 10; $i++) {
 //     echo "<br>Perulangan ke: " . $i;
 // }
@@ -72,18 +82,18 @@ switch ($nama_hari) {
 //     $i--;
 // }
 
-echo "Perulangan <code>do while</code> 1 sampai 10 </br>";
+// echo "Perulangan <code>do while</code> 1 sampai 10 </br>";
 
-$i = 1;
-do {
-    echo "<br>Perulangan ke: $i";
-    $i++;
-} while ($i <= 10);
+// $i = 1;
+// do {
+//     echo "<br>Perulangan ke: $i";
+//     $i++;
+// } while ($i <= 10);
 
-echo "<br>";
+// echo "<br>";
 
-$i = 10;
-do {
-    echo "<br>Perulangan ke: $i";
-    $i--;
-} while ($i >= 1);
+// $i = 10;
+// do {
+//     echo "<br>Perulangan ke: $i";
+//     $i--;
+// } while ($i >= 1);

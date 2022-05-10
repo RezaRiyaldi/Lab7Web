@@ -174,6 +174,7 @@ echo "Gaji yang dibawa pulang = Rp. $thp </br>";
 1. Tambahkan kode berikut.
 
 ```php
+date_default_timezone_set("Asia/Jakarta");
 $nama_hari = date('l');
 $hari_ini = "";
 
@@ -181,17 +182,17 @@ if ($nama_hari == "Sunday") {
     $hari_ini = "Minggu";
 } else if ($nama_hari == "Monday") {
     $hari_ini = "Senin";
-} else if ($nama_hari == "Monday") {
+} else if ($nama_hari == "Tuesday") {
     $hari_ini = "Selasa";
-} else if ($nama_hari == "Monday") {
+} else if ($nama_hari == "Wednesday") {
     $hari_ini = "Rebu";
-} else if ($nama_hari == "Monday") {
+} else if ($nama_hari == "Thursday") {
     $hari_ini = "Kamis";
-} else if ($nama_hari == "Monday") {
+} else if ($nama_hari == "Friday") {
     $hari_ini = "Jum\'at";
-} else if ($nama_hari == "Monday") {
+} else if ($nama_hari == "Saturday") {
     $hari_ini = "Sabtu";
-} 
+}
 
 echo "Hari ini adalah hari $hari_ini";
 
